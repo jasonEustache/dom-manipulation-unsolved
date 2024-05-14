@@ -2,40 +2,28 @@
  * SORTING NODES WITHIN A CONTAINER
  * Please, make sure to read the following files in the exercises-info folder before you start
  * * 01 SelectNodes.md
-*/
-
+ */
 /**
  * @task
  * Select all elements that have class of "item" as a NodeList.
  * Store them in the allItems variable
  * Example: const allItems = <Your code>;
  */
-
 // Your code goes here...
-
-
-
 /**
  * @task
  * Select the main container by the id of "main"
  * Store it in the main constant
  * Example: const main = <Your code>
  * */
-
 // Your code goes here
-
-
-
 /**
  * @task
  * Select the favorites container by id of "favs"
  * Store it in the favs constant
  * Example: const favs = <Your code>;
  */
-
 // Your code goes here
-
-
 
 /**
  * @task
@@ -45,12 +33,9 @@
  * Moves the element from the current parent to the new parent (from main to favs or vice versa)
  * Changes the icon of the element: fa-heart-circle-plus for main, fa-heart-crack for favs items.
  */
-
 // Your code goes here
-
-
-
 /**
+ 
  * @task
  * Iterate through the every item in allItems NodeList and apply the
  * addEventListener click event to each item.
@@ -65,5 +50,20 @@
  */
 
 // Your code goes here...
+const allItems = document.querySelectorAll(".item");
+const main = document.getElementById("main");
+const fav = document.getElementById("favs");
 
+allItems.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    const card = e.target;
 
+    if (card.children[0].className === "fa-solid fa-heart-circle-plus") {
+      fav.append(card);
+      card.children[0].className = "fa-solid fa-heart-crack";
+    } else {
+      main.append(card);
+      card.children[0].className = "fa-solid fa-heart-circle-plus";
+    }
+  });
+});
